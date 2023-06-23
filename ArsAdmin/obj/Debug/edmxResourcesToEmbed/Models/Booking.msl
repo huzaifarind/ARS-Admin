@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ARSModel1StoreContainer" CdmEntityContainer="ARSEntities1">
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="ARSModel1.Booking">
+        <MappingFragment StoreEntitySet="Bookings">
+          <ScalarProperty Name="BookingId" ColumnName="BookingId" />
+          <ScalarProperty Name="PlaneId" ColumnName="PlaneId" />
+          <ScalarProperty Name="OriginId" ColumnName="OriginId" />
+          <ScalarProperty Name="DestinatinId" ColumnName="DestinatinId" />
+          <ScalarProperty Name="NoOfPassengers" ColumnName="NoOfPassengers" />
+          <ScalarProperty Name="PassengerId" ColumnName="PassengerId" />
+          <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+          <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

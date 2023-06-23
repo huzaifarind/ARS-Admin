@@ -1,0 +1,85 @@
+﻿@model IEnumerable<ArsAdmin.Models.RegisterPassenger>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Admin/_LayoutPage1.cshtml";
+}
+
+<br />
+<br />
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class=".table-bordered" cellpadding="10"cellspacing="10" style="overflow-x:auto;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RegisterPassengerId )
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.RegisterPassengerId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateOfBirth)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MobileNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EmailAddress)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Password)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Gender)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Address)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.RegisterPassengerId }, new { @class = "btn-link" }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.RegisterPassengerId }, new { @class = "btn-link" })
+    </td>
+</tr>
+    }
+
+</table>

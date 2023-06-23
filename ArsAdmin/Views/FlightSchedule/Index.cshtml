@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ArsAdmin.Models.FlightSchedule>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaneId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalAirportId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureAirportId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTiming)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlaneId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArrivalAirportId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartureAirportId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTiming)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FlightScheduleId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FlightScheduleId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FlightScheduleId })
+        </td>
+    </tr>
+}
+
+</table>

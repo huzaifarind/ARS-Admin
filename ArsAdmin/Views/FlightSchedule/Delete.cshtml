@@ -1,0 +1,50 @@
+﻿@model ArsAdmin.Models.FlightSchedule
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>FlightSchedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlaneId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlaneId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalAirportId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalAirportId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureAirportId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureAirportId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTiming)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTiming)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ARSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="RegisterPassenger">
+    <Key>
+      <PropertyRef Name="RegisterPassengerId" />
+    </Key>
+    <Property Name="RegisterPassengerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="RegisterPassenger1" Relationship="Self.FK_Passenger_Passenger" FromRole="RegisterPassenger" ToRole="RegisterPassenger1" />
+    <NavigationProperty Name="RegisterPassenger2" Relationship="Self.FK_Passenger_Passenger" FromRole="RegisterPassenger1" ToRole="RegisterPassenger" />
+  </EntityType>
+  <Association Name="FK_Passenger_Passenger">
+    <End Role="RegisterPassenger" Type="Self.RegisterPassenger" Multiplicity="1" />
+    <End Role="RegisterPassenger1" Type="Self.RegisterPassenger" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="RegisterPassenger">
+        <PropertyRef Name="RegisterPassengerId" />
+      </Principal>
+      <Dependent Role="RegisterPassenger1">
+        <PropertyRef Name="RegisterPassengerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ARSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="RegisterPassengers" EntityType="Self.RegisterPassenger" />
+    <AssociationSet Name="FK_Passenger_Passenger" Association="Self.FK_Passenger_Passenger">
+      <End Role="RegisterPassenger" EntitySet="RegisterPassengers" />
+      <End Role="RegisterPassenger1" EntitySet="RegisterPassengers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

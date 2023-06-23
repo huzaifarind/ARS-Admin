@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ARSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="RegisterPassenger">
+    <Key>
+      <PropertyRef Name="RegisterPassengerId" />
+    </Key>
+    <Property Name="RegisterPassengerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="MobileNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Passenger_Passenger">
+    <End Role="RegisterPassenger" Type="Self.RegisterPassenger" Multiplicity="1" />
+    <End Role="RegisterPassenger1" Type="Self.RegisterPassenger" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="RegisterPassenger">
+        <PropertyRef Name="RegisterPassengerId" />
+      </Principal>
+      <Dependent Role="RegisterPassenger1">
+        <PropertyRef Name="RegisterPassengerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ARSModelStoreContainer">
+    <EntitySet Name="RegisterPassenger" EntityType="Self.RegisterPassenger" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Passenger_Passenger" Association="Self.FK_Passenger_Passenger">
+      <End Role="RegisterPassenger" EntitySet="RegisterPassenger" />
+      <End Role="RegisterPassenger1" EntitySet="RegisterPassenger" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
